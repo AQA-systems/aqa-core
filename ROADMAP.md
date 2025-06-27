@@ -1,4 +1,9 @@
-# AQA Project Roadmap (DRAFT)
+
+<p align="left">
+  <img src="logo/aqa_logo.png" alt="AQA logo" width="200"/>
+</p>
+
+# AQA Project Roadmap 
 
 ## Phase I: Core System Architecture
 - Voice interface (Whisper / Speech-to-Text)
