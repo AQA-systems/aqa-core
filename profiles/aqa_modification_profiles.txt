@@ -1,0 +1,52 @@
+
+AQA MODIFICATION CLASSES (Profile Types)
+----------------------------------------
+
+Each AQA instance is categorized by environment/platform type. This classification defines the behavior, sensor usage, voice interaction model, and mission profile.
+
+MODIFICATIONS / CATEGORIES:
+
+1. AQA-LARACH   — Light Aircraft
+   - For general aviation, LSA/UL platforms
+   - Profile: light_aircraft_default.json
+
+2. AQA-HARACH   — Heavy Aircraft
+   - For IFR-capable, commercial-grade aircraft
+   - Profile: heavy_aircraft_default.json
+
+3. AQA-DRONE    — UAVs and autonomous platforms
+   - Multicopters, fixed wing, experimental UAVs
+   - Profile: drone_default.json
+
+4. AQA-ROCKET   — Rocket systems
+   - Suborbital, sounding rockets, vertical launch
+   - Profile: rocket_default.json
+
+5. AQA-ORBIT    — Spacecraft
+   - Orbital missions, cubesats, deep space
+   - Profile: spacecraft_default.json
+
+6. AQA-SIM      — Simulators
+   - Ground-based cockpit simulators, test harnesses
+   - Profile: simulator_default.json
+
+7. AQA-BENCH    — Bench setups
+   - Development or testing configurations
+   - Profile: bench_default.json
+
+8. AQA-CUSTOM   — Custom
+   - Experimental, hybrid, or unknown platforms
+   - Profile: custom_default.json
+
+Each profile includes:
+- Category
+- Default sensors
+- Environment description
+- Preferred interaction mode (e.g. voice/terminal)
+- Initialization logic (voice-guided setup, one-time lock)
+- Callsign and context
+
+First initialization:
+- AQA requests classification (voice or manual)
+- Profile is loaded or created
+- Identity is locked unless reset
