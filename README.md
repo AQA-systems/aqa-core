@@ -8,6 +8,8 @@
 AQA is a cockpit-integrated voice intelligence system designed to operate as an autonomous assistant.
 Unlike chatbots or generic AI agents, AQA is mission-oriented, embedded, and focused on situational awareness.
 
+[![Support via Coffee](https://img.shields.io/badge/☕%20Buy%20me%20a%20coffee-orange?style=for-the-badge)](https://coff.ee/bielakas)
+
 ## Functionality
 - Situational awareness: tracks system and environmental parameters
 - Voice interaction: accepts short verbal commands, issues concise responses
@@ -27,6 +29,7 @@ AQA is an open, modular concept. While initially focused on cockpit integration,
 - Expanded aircraft roles (diagnostics, remote ops)
 - Hybrid cloud/local operation
 - Deployment beyond general aviation
+
 
 This repository documents AQA as a living system — scalable, modular, and extensible.
 
