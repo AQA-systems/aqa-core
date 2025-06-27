@@ -1,4 +1,9 @@
-# AQA – Technical Architecture
+<p align="left">
+  <img src="logo/aqa_logo.png" alt="AQA logo" width="200"/>
+</p>
+
+
+# Technical Architecture
 
 This document outlines the core technical components, hardware options, and integration strategies of AQA — the Autonomous Flight Assistant.
 
