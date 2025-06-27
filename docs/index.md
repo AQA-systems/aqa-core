@@ -23,4 +23,11 @@ Visit the GitHub page often as the project evolves.
 
 ---
 
+---
+
+## ☕ Support
+
+If you appreciate this project, you can support it here:  
+[💛 Buy me a coffee](https://coff.ee/bielakas)
+
 🧠 [Back to README](../README.md)
