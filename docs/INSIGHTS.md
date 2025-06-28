@@ -1,7 +1,7 @@
 
 # ✳️ External LLM Feedback — Insights and Strategy 
 
-This file summarizes the feedback received from two advanced AI assistants — **Gemini** and **Perplexity** — regarding the architecture and technical decisions of the AQA project (Autonomous Query Assistant).
+This file summarizes the feedback received from two advanced AI assistants — **Gemini** and **Perplexity** — regarding the architecture and technical decisions of the AQA project (Autonomous Quantum Assistant).
 
 ---
 
