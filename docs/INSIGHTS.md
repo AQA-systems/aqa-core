@@ -1,78 +1,61 @@
-
 # ✳️ External LLM Feedback — Insights and Strategy 
 
-This file summarizes the feedback received from two advanced AI assistants — **Gemini** and **Perplexity** — regarding the architecture and technical decisions of the AQA project (Autonomous Quantum Assistant).
+> ✈️ AQA – Your AI-Powered Co-Pilot  
+> Navigate, manage checklists, and monitor vital flight data seamlessly — all with the power of your voice.
+
+This file summarizes early conceptual feedback from external assistant systems regarding architecture and design decisions in the AQA project.
 
 ---
 
 ## 🔍 Wake Word Detection (WWD)
 
-### ✅ Recommended
-- **Porcupine** (Picovoice): high performance, low resource, ideal for final builds.
-- **OpenWakeWord**: open-source, lighter, great for prototyping.
-- **Silero VAD**: lightweight option for voice activity detection.
-
-### 🧭 Our Choice:
-> Start with **OpenWakeWord** for fast integration, then switch to **Porcupine** for stable deployment.
+### 🧭 Direction:
+Begin with lightweight, open-source wake word detection for prototyping. Transition to high-reliability models for deployment in embedded systems.
 
 ---
 
 ## 🧠 Local ASR / STT (Speech-to-Text)
 
-### ✅ Recommended
-- **Whisper.cpp** (tiny.en / base.en, quantized GGUF)
-- **Vosk** (optional for embedded ASR)
-
-### 🧭 Our Choice:
-> Use `whisper.cpp` with `tiny.en` model for onboard transcription. Optimize later.
+### 🧭 Direction:
+Use compact, locally-runnable speech recognition engines suitable for real-time onboard use. Prioritize quantized, efficient formats.
 
 ---
 
 ## 🔁 Voice Pipeline Architecture
 
 ### ✅ Consensus
-- Use **asyncio**-based modular architecture with **Finite State Machine (FSM)**
-- Organize voice loop: Wake → ASR → LLM → TTS
-- Use `queue.Queue` or `asyncio.Queue` for inter-process communication
+- Use modular FSM loop with async behavior modeling
+- Organize voice loop: Wake → Recognition → Processing → Speech Output
+- Use queue structures for inter-process communication
 - Manage context state for checklist confirmations
 
 ### 🧭 Our Choice:
-> FSM with `transitions` lib in Python. Each module async. Start with simulation loop.
+> Modular FSM loop with async behavior modeling. Each module async. Start with simulation loop.
 
 ---
 
 ## 🔊 Local TTS
 
-### ✅ Recommended
-- **Piper** — clear, lightweight, good voice
-- **Coqui** — very natural, but heavier
-- **eSpeak-ng** — fallback only (low quality)
-
-### 🧭 Our Choice:
-> Use `Piper` with voice `en_amy-low` (for cabin clarity). Optimize later if needed.
+### 🧭 Direction:
+Use lightweight, locally hosted text-to-speech engines with clear output suitable for noisy cabin environments. Optimize for low latency.
 
 ---
 
 ## 🧩 Local RAG (Retrieval-Augmented Generation)
 
-### ✅ Recommended stack:
-- Embedding model: `all-MiniLM-L6-v2` or `gte-small` (sentence-transformers)
-- Vector DB: **FAISS**, **ChromaDB**, or **LanceDB**
-- Framework: `LangChain` or `LlamaIndex`
-
-### 🧭 Our Choice:
-> Use FAISS + all-MiniLM-L6-v2, integrate into `llama_index`, test with checklists.
+### 🧭 Direction:
+Support optional retrieval-augmented workflows through local vector databases and embedding models. Maintain modular design to allow extension.
 
 ---
 
-## 📡 Communication ESP32 ↔ Host
+## 📡 Communication Layer (Data ↔ System)
 
 ### ✅ Recommended
-| Method    | Use Case                  | Notes                         |
-|-----------|---------------------------|-------------------------------|
-| UART      | Direct wired link         | Low-latency, stable            |
-| MQTT      | Telemetry via Wi-Fi       | Use local broker (Mosquitto)  |
-| ESP-NOW   | Peer-to-peer ESP comms    | Not suitable for SBC host     |
+| Method    | Use Case                  | Notes                              |
+|-----------|---------------------------|------------------------------------|
+| UART      | Direct serial data stream | Low-latency, stable                |
+| MQTT      | Structured telemetry      | Use local broker where applicable  |
+| Wireless  | Peer-to-peer module link  | For internal lightweight transfer  |
 
 ### 🧭 Our Choice:
 > MQTT for structured data → UART fallback for critical channels
@@ -81,15 +64,14 @@ This file summarizes the feedback received from two advanced AI assistants — *
 
 ## 📘 Summary of Actions
 
-| Decision Area        | Action                              |
+| Decision Area        | Direction                           |
 |----------------------|--------------------------------------|
-| Wake Word Detection  | Start OpenWakeWord, plan Porcupine  |
-| ASR Engine           | Whisper.cpp tiny.en GGUF            |
-| LLM Core             | Phi-3 or Gemma 2B (quantized)       |
-| FSM Loop             | `asyncio` + `transitions`           |
-| Local TTS            | Piper (Amy voice)                   |
-| RAG Stack            | FAISS + MiniLM + Langchain          |
-| ESP32 Link           | MQTT primary, UART fallback         |
+| Wake Word Detection  | Lightweight engine, scalable         |
+| Recognition Engine   | Local, quantized STT module          |
+| Processing Core      | Embedded intent inference logic      |
+| FSM Loop             | Async FSM with modular coordination  |
+| Speech Output        | Local TTS, optimized for clarity     |
+| Retrieval Support    | Modular vector indexing (optional)   |
+| Data Link            | UART / MQTT with fallback layering   |
 
 ---
-

@@ -1,4 +1,3 @@
-
 <p align="left">
   <img src="logo/aqa_logo.png" alt="AQA logo" width="200"/>
 </p>
@@ -6,31 +5,31 @@
 # Project Roadmap 
 
 ## Phase I: Core System Architecture
-- Voice interface (Whisper / Speech-to-Text)
-- Text generation module (LLM)
-- TTS (Text-to-Speech) with confirmation logic
-- Modular ESP32 data endpoints (sensors, GPS)
-- UART / MQTT / ESP-NOW communication bridge
+- Voice interface using local speech recognition engine
+- Embedded language module for intent understanding
+- Local speech synthesis with confirmation logic
+- Modular sensor and data endpoints (altitude, heading, GPS)
+- Standard serial or wireless communication bridge
 
 ## Phase II: Sensor Integration
-- BME280 / BMP280 barometric input
-- GPS NMEA stream parsing
-- Heading sensor (BNO085)
+- Barometric input from pressure sensors
+- Parsing of navigation data streams (e.g., NMEA)
+- Heading source via standard inertial interface
 - Altitude calculation with QNH support
 - Real-time annunciator output
 
 ## ✅ Voice Confirmation Layer (VCL)
 - No parameter is applied without pilot confirmation
 - Example flow:
-  1. Whisper detects "QNH 1015"
+  1. The system detects "QNH 1015"
   2. AQA: "Confirm: set QNH 1015?"
   3. Pilot: "Affirm"
   4. AQA applies and announces confirmation
 - Applies to QNH, radio freq, autopilot modes, checklists, heading/course
 
 ## 🧠 Smart Passive Watch Mode (SPWM)
-- Continuous passive listening (Whisper + VAD)
-- Contextual interpretation of speech (NLP filter)
+- Continuous passive listening with integrated speech trigger logic
+- Contextual interpretation of verbal input
 - Wait-for-silence before intervention (~2.5 sec delay)
 - Gentle confirm: "Confirm QNH 1015 to all instruments?"
 - If pilot says "No, already set" — system acknowledges silently

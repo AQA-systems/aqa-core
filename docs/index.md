@@ -1,17 +1,19 @@
+# ✈️ AQA – Your AI-Powered Co-Pilot
 
-# AQA — Autonomous Quantum Assistant
+> Your AI-powered co-pilot for enhanced aviation awareness and control.  
+> _Navigate, manage checklists, and monitor vital flight data seamlessly — all with the power of your voice._
 
-**AQA** is a cockpit-integrated voice intelligence system designed to operate as an autonomous assistant in aviation and experimental systems.
+**AQA** is a modular, offline voice co-pilot designed for cockpit and embedded aviation systems.
 
 ---
 
 ## Key Features
 
-- Voice command interface with awareness of context
-- Situation monitoring and alerting
-- Customizable profiles: aircraft, drone, rocket, simulator, lab bench
-- Offline-capable, mission-focused
-- Modular and hardware-agnostic
+- Context-aware voice interaction
+- Monitoring of onboard systems and verbal alerting
+- Adaptable profiles for aircraft, UAVs, rockets, simulators, and labs
+- Fully offline and mission-oriented
+- Modular architecture with platform-agnostic design
 
 ---
 

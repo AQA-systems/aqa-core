@@ -11,17 +11,17 @@ This document outlines the core technical components, hardware options, and inte
 
 ## 🎛️ Core Modules
 
-- **Speech Recognition (ASR)**: 
-  - Local: Whisper (tiny/int8) or Vosk
-  - Online fallback: OpenAI Whisper API or Gemini Audio
+- **Speech Recognition**:  
+  - Local speech engine for onboard voice input processing  
+  - Optional fallback layer for external transcription sources
 
-- **Language Model (LLM)**:
-  - Quantized models (Gemma 2B, Mistral 7B Q4/5, Phi 3.5) via llama.cpp or ollama
-  - On-device via Android, Raspberry Pi, or MacBook
+- **Language Understanding**:  
+  - Embedded language inference module for intent detection  
+  - Supports multiple device architectures and resource profiles
 
-- **Text-to-Speech (TTS)**:
-  - Embedded: Piper, Silero, Coqui
-  - Optional: cloud-based TTS for high fidelity
+- **Voice Output**:  
+  - Local text-to-speech engine for cockpit-grade voice feedback  
+  - Optional external speech backend for extended fidelity (if needed)
 
 ---
 
@@ -35,20 +35,18 @@ This document outlines the core technical components, hardware options, and inte
 
 ## 🛰️ Input & Sensors
 
-- GPS (UART / NMEA)
-- IMU (MPU6050 / BNO085 / phone sensors)
-- Altitude (barometric or GPS)
-- Voltage / Fuel / Temp / RPM (via analog or digital sensors)
+- Navigation data from standard interfaces (e.g., NMEA)
+- Inertial and motion input from onboard sensors
+- Altitude sources via pressure or positional channels
+- System status (voltage, fuel, RPM, temperature) via analog/digital signals
 - Speech commands via audio input (intercom mic or PTT)
 
 ---
 
 ## 📦 Deployment Targets
 
-- Android smartphone with model launcher app
-- MacBook M1/M2 with local inference
-- Raspberry Pi 5 with Coral/NPU optional
-- ESP32 as I/O gateway for legacy sensors
+- Mobile and desktop devices with embedded inference support
+- Modular I/O gateways for legacy or discrete sensors
 
 ---
 
@@ -58,7 +56,7 @@ This document outlines the core technical components, hardware options, and inte
 - Input via:
   - intercom mic (wired 3.5mm jack)
   - USB mic
-  - ESP32-A2DP passthrough
+  - Optional wireless audio passthrough via low-latency channel
 
 ---
 
@@ -81,7 +79,7 @@ This document outlines the core technical components, hardware options, and inte
 ## ⚙️ Optional Modes
 
 - Offline-only mode for full autonomy
-- Hybrid with OpenAI API or Gemini
+- Hybrid mode supporting optional external inference sources
 - Manual trigger via hardware button or PTT
 
 ---
